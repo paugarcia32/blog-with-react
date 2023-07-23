@@ -1,57 +1,21 @@
 import './App.css';
+import Header from './Header';
+import Layout from './Layout';
+import IndexPage from './Pages/IndexPage';
+import LoginPage from './Pages/LoginPage';
+import Post from './Post';
+import {Route, Routes} from "react-router-dom"
 
 function App() {
   return (
-    <main>
-      <header>
-        <a href='' className='logo'>My Blog</a>
-        <nav>
-          <a href=''>Login</a>
-          <a href=''>Register</a>
-        </nav>
-      </header>
-      <div className='post'>
-        <div className='image'>
-<img alt='' src='https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/paginas-para-crear-un-blog.jpg?width=610&height=406&name=paginas-para-crear-un-blog.jpg'></img>
-        </div>
-        <div className='texts'>
-        <h2>My  Fisrt entry blog!</h2>
-        <p className='info'>
-          <a className='author'>Pau Garcia</a>
-          <time>2023-01-06 16:45</time>
-        </p>
-        <p className='summary'>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. </p>
-        </div>
-      </div>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<IndexPage />} />
+        <Route path='/login' element={LoginPage}/>
+      </Route>
+    </Routes>
 
-      <div className='post'>
-        <div className='image'>
-<img alt='' src='https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/paginas-para-crear-un-blog.jpg?width=610&height=406&name=paginas-para-crear-un-blog.jpg'></img>
-        </div>
-        <div className='texts'>
-        <h2>My  Fisrt entry blog!</h2>
-        <p className='info'>
-          <a className='author'>Pau Garcia</a>
-          <time>2023-01-06 16:45</time>
-        </p>
-        <p className='summary'>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. </p>
-        </div>
-      </div>
 
-      <div className='post'>
-        <div className='image'>
-<img alt='' src='https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/paginas-para-crear-un-blog.jpg?width=610&height=406&name=paginas-para-crear-un-blog.jpg'></img>
-        </div>
-        <div className='texts'>
-        <h2>My  Fisrt entry blog!</h2>
-        <p className='info'>
-          <a className='author'>Pau Garcia</a>
-          <time>2023-01-06 16:45</time>
-        </p>
-        <p className='summary'>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. </p>
-        </div>
-      </div>
-    </main>
   );
 }
 
