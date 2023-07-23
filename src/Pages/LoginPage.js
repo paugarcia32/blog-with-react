@@ -7,7 +7,6 @@ export default function LoginPage(){
   const [password, setPassword] = useState('')
   const [redirect, setRedirect] = useState(false)
 
-
   async function login(ev){
     ev.preventDefault()
     const response = await fetch(`${process.env.REACT_APP_URL}/login`, {
