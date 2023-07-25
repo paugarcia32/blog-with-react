@@ -86,6 +86,6 @@ button{
   border-radius: 5px;
   padding: 7px 0;
 }
-form h1{
+form.login, form.register h1{
   text-align: center;
 }
