@@ -1,16 +1,21 @@
-export default function Post(){
+import {formatISO9075} from 'date-fns'
+import {Link} from "react-router-dom";
+export default function Post({_id, title, summary, cover, content, createdAt, author}){
   return(
     <div className='post'>
-        <div className='image'>
-<img alt='' src='https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/paginas-para-crear-un-blog.jpg?width=610&height=406&name=paginas-para-crear-un-blog.jpg'></img>
-        </div>
+      <div className='image'>
+        <Link to={`/post/${_id}`}>
+                  <img src={`${process.env.REACT_APP_URL}/`+cover} alt=""/>
+                </Link>
+      </div>
+
         <div className='texts'>
-        <h2>My  Fisrt entry blog!</h2>
+        <h2>{title}</h2>
         <p className='info'>
-          <a className='author'>Pau Garcia</a>
-          <time>2023-01-06 16:45</time>
+          <a className='author' href>{author.username}</a>
+          <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
-        <p className='summary'>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. </p>
+        <p className='summary'>{summary}</p>
         </div>
       </div>
   );

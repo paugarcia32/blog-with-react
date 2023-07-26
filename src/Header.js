@@ -5,39 +5,39 @@ import { UserContext } from "./UserContext";
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
 
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_URL}/profile`, {
-  //     credentials: 'include',
-
-  //   })
-  //   .then(response => {
-  //     // Verificar si la respuesta no es un JSON válido
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
-  //     return response.json();
-  //   })
-  //   .then(userInfo => {
-  //     // Verificar si el campo 'username' está presente en la respuesta
-  //     if (userInfo && userInfo.username) {
-  //       setUserInfo(userInfo);
-  //     }
-  //   })
-  //   .catch(error => {
-  //     console.error('Error fetching profile:', error);
-  //     setUserInfo(null);
-  //   });
-  // });
-
   useEffect(() => {
     fetch(`${process.env.REACT_APP_URL}/profile`, {
       credentials: 'include',
-    }).then(response => {
-      response.json().then(userInfo => {
+
+    })
+    .then(response => {
+      // Verificar si la respuesta no es un JSON válido
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(userInfo => {
+      // Verificar si el campo 'username' está presente en la respuesta
+      if (userInfo && userInfo.username) {
         setUserInfo(userInfo);
-      });
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching profile:', error);
+      setUserInfo(null);
     });
-  }, []);
+  });
+
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_URL}/profile`, {
+  //     credentials: 'include',
+  //   }).then(response => {
+  //     response.json().then(userInfo => {
+  //       setUserInfo(userInfo);
+  //     });
+  //   });
+  // });
 
   function logout() {
     fetch(`${process.env.REACT_APP_URL}/logout`, {
