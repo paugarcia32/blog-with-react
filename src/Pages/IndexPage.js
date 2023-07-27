@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Post from "../Post"
+import FilteredPosts from "../components/FilteredPosts"
 
 export default function IndexPage(){
   const [posts, setPosts] = useState([])
@@ -11,11 +12,16 @@ export default function IndexPage(){
       }))
     })
   })
-  return(
+  return (
     <>
-      {posts.length > 0 && posts.map(post => (
-        <Post {...post}/>
-      ))}
+    <div className="layout">
+
+
+        <FilteredPosts/>
+
+
+    </div>
+
     </>
-  )
+  );
 }
