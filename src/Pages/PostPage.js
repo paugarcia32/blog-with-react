@@ -2,14 +2,14 @@ import { formatISO9075 } from "date-fns";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../UserContext";
+import TableOfContents from "../components/TOC.js";
 
 export default function PostPage() {
   const { id } = useParams();
   const [postInfo, setPostInfo] = useState(null);
   const { userInfo } = useContext(UserContext);
   const [tags, setTags] = useState([]);
-
-
+  const [postContent, setPostContent] = useState("");
 
   useEffect(() => {
     // Obtener los detalles del post y los tags asociados al post
@@ -24,6 +24,7 @@ export default function PostPage() {
       .then(([postInfo, tagsData]) => {
         setPostInfo(postInfo);
         setTags(tagsData);
+        setPostContent(postInfo.content); // Guardar el contenido del post
       })
       .catch((error) => {
         console.error("Error fetching post and tags:", error);
@@ -60,19 +61,27 @@ export default function PostPage() {
       <h1>{postInfo.title}</h1>
       {/* Mostrar los tags asociados al post */}
       <div className="tags">
-  <strong>Tags: </strong>
-  {postInfo.tag.map((associatedTag, index) => (
-    <span key={associatedTag._id} className="tag">
-      {associatedTag.title}
-      {index !== postInfo.tag.length - 1 && ', '}
-    </span>
-  ))}
-</div>
+        <strong>Tags: </strong>
+        {postInfo.tag.map((associatedTag, index) => (
+          <span key={associatedTag._id} className="tag">
+            {associatedTag.title}
+            {index !== postInfo.tag.length - 1 && ', '}
+          </span>
+        ))}
+      </div>
 
       <div
         className="content"
         dangerouslySetInnerHTML={{ __html: postInfo.content }}
       />
+
+      {/* Renderizar la tabla de contenidos solo si el contenido del post es válido */}
+      {postContent && (
+        <TableOfContents content={postContent} />
+      )}
+
     </div>
+
+
   );
 }
