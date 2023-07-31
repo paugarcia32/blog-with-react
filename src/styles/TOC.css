@@ -1,0 +1,60 @@
+/* toc.css */
+
+/* Estilos para el Table of Contents (TOC) */
+.table-of-contents {
+  background-color: var(--background-color);
+  padding: 10px;
+}
+
+.table-of-contents h2 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.table-of-contents ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.table-of-contents li {
+  margin-bottom: 5px;
+}
+
+/* Evitar la decoración predeterminada de los enlaces en el TOC */
+.table-of-contents a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* Estilos para los diferentes niveles de encabezados */
+.heading-level-1 {
+  font-size: 1.4em;
+}
+
+.heading-level-2 {
+  font-size: 1.3em;
+  margin-left: 20px;
+}
+
+.heading-level-3 {
+  font-size: 1.2em;
+  margin-left: 40px;
+}
+
+/* Agrega estilos para los niveles de encabezados adicionales según sea necesario */
+/* .heading-level-4 {
+  ...
+}
+
+.heading-level-5 {
+  ...
+}
+
+.heading-level-6 {
+  ...
+} */
+
+/* Estilos para indicar el encabezado en el que se encuentra el usuario */
+.active-heading {
+  font-weight: bold;
+}

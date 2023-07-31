@@ -2,6 +2,8 @@ import ReactQuill from "react-quill"
 import 'react-quill/dist/quill.snow.css'
 import { useEffect, useState } from "react"
 import {Navigate} from "react-router-dom";
+import MDEditor from "../MDEditor";
+import MdEditor from "../MDEditor";
 
 
 const modules = {
@@ -164,8 +166,13 @@ export default function CreatePost(){
         <ReactQuill
         value={content}
         onChange={newValue => setContent(newValue)}
-        modules={modules}
-        formats={formats}/>
+        // modules={modules}
+        // formats={formats}
+        />
+        {/* <MdEditor
+        value={content}
+        onChange={newValue => setContent(newValue)}
+        /> */}
         <button style={{marginTop: '5px'}}>Create post</button>
       </form>
     </div>
