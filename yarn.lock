@@ -6990,6 +6990,13 @@ jsonpointer@^5.0.0:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
+katex@^0.16.8:
+  version "0.16.8"
+  resolved "https://registry.npmjs.org/katex/-/katex-0.16.8.tgz"
+  integrity sha512-ftuDnJbcbOckGY11OO+zg3OofESlbR5DRl2cmN8HeWeeFIV7wTXvAOx8kEjZjobhA+9wh2fbKeO6cdcA9Mnovg==
+  dependencies:
+    commander "^8.3.0"
+
 khroma@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/khroma/-/khroma-2.0.0.tgz"
