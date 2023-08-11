@@ -7,33 +7,32 @@ export default function Header() {
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_URL}/profile`, {
-      credentials: 'include',
-
+      credentials: "include",
     })
-    .then(response => {
-      // Verificar si la respuesta no es un JSON válido
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(userInfo => {
-      // Verificar si el campo 'username' está presente en la respuesta
-      if (userInfo && userInfo.username) {
-        setUserInfo(userInfo);
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching profile:', error);
-      setUserInfo(null);
-    });
-  });
+      .then((response) => {
+        // Verificar si la respuesta no es un JSON válido
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((userInfo) => {
+        // Verificar si el campo 'username' está presente en la respuesta
+        if (userInfo && userInfo.username) {
+          setUserInfo(userInfo);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching profile:", error);
+        setUserInfo(null);
+      });
+  }, []);
 
   // useEffect(() => {
   //   fetch(`${process.env.REACT_APP_URL}/profile`, {
-  //     credentials: 'include',
-  //   }).then(response => {
-  //     response.json().then(userInfo => {
+  //     credentials: "include",
+  //   }).then((response) => {
+  //     response.json().then((userInfo) => {
   //       setUserInfo(userInfo);
   //     });
   //   });
@@ -41,8 +40,8 @@ export default function Header() {
 
   function logout() {
     fetch(`${process.env.REACT_APP_URL}/logout`, {
-      credentials: 'include',
-      method: 'POST',
+      credentials: "include",
+      method: "POST",
     });
     setUserInfo(null);
   }
@@ -51,20 +50,24 @@ export default function Header() {
 
   return (
     <header>
-      <Link to="/" className="logo">My Blog</Link>
+      <Link to="/index" className="logo">
+        My Blog
+      </Link>
       <nav>
         {username && (
           <>
             <Link to="/create">Create new post</Link>
-            <a href onClick={logout}>LogOut</a>
+            <a href onClick={logout}>
+              LogOut
+            </a>
           </>
         )}
-        {!username && (
+        {/* {!username && (
           <>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
           </>
-        )}
+        )} */}
       </nav>
     </header>
   );
