@@ -1,0 +1,132 @@
+/* Header styles */
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 190px;
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.header-text-1,
+.header-text-2 {
+  margin-bottom: 10px;
+}
+
+
+.main-title {
+  margin: 20px 0 10px 0;
+  text-align: left;
+  font-size: 1.55rem;
+  color: var(--text);
+  font-family: Merriweather;
+  /* Changed to accent color */
+}
+
+.main-title-underline {
+  width: 80px;
+  text-align: left;
+  height: 0.15rem;
+  background: var(--accent);
+  /* Changed to accent color */
+  margin-bottom: 20px;
+}
+
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  font-size: 20px;
+  margin-top: 10px;
+  border: 1px solid var(--secondary);
+  /* Changed to secondary color */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.underline {
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  margin: 20px auto;
+}
+
+
+.column-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 16px;
+  background-color: var(--secondary);
+  /* Changed to secondary color */
+  transition: background-color 0.2s;
+}
+
+.column-container:hover {
+  background-color: var(--accent);
+    /* Changed to accent color */
+  width: 100%;
+  color: var(--text-accent);
+}
+
+.column-container:hover
+.expendable-button
+{
+  color: var(--text-accent);
+}
+.text-container {
+  text-align: left;
+  max-height: 350px;
+  opacity: 1;
+  animation-name: textanimate;
+  animation-duration: 1s;
+  margin: 10px 10px;
+}
+
+.expendable-button {
+  background-color: transparent;
+  color: var(--accent);
+  /* Changed to accent color */
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+  margin-right: 10px;
+}
+
+@keyframes textanimate {
+  0% {
+    opacity: 0;
+    max-height: 15px;
+  }
+
+  100% {
+    opacity: 1;
+    max-height: 350px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+
+
+  h3 {
+    font-size: 1.55rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+
+}

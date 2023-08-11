@@ -1,0 +1,32 @@
+/* Header.css */
+
+/* Estilo para la lista de etiquetas */
+.tag-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-list li {
+  font-size: 14px;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tag-list li.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.tag-list li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Estilo adicional para los botones en la lista de etiquetas */
+.tag-list button {
+  margin-left: 5px;
+}

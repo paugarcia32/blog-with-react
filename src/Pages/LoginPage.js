@@ -18,6 +18,7 @@ export default function LoginPage() {
     });
     if (response.ok) {
       response.json().then((userInfo) => {
+        localStorage.setItem("token", userInfo.token);
         setUserInfo(userInfo);
         setRedirect(true);
       });
