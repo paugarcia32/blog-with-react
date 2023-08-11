@@ -2,8 +2,7 @@ import ReactQuill from "react-quill"
 import 'react-quill/dist/quill.snow.css'
 import { useEffect, useState } from "react"
 import {Navigate} from "react-router-dom";
-import MDEditor from "../MDEditor";
-import MdEditor from "../MDEditor";
+import Editor from "../editor/QuillEditor/Editor";
 
 
 const modules = {
@@ -163,12 +162,7 @@ export default function CreatePost(){
 
         onChange={ev => setFile(ev.target.files)}
         />
-        <ReactQuill
-        value={content}
-        onChange={newValue => setContent(newValue)}
-        // modules={modules}
-        // formats={formats}
-        />
+        <Editor onChange={setContent} value={content} />
         {/* <MdEditor
         value={content}
         onChange={newValue => setContent(newValue)}
