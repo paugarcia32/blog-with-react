@@ -2,13 +2,6 @@
   background-color: var(--background);
 }
 
-/* .table-of-contents h2 {
-  margin-bottom: 10px;
-  font-size: 1em;
-  font-family: 'Merriweather', serif;
-} */
-
-/* Agrega estilos para el icono */
 .toc-icon {
   margin-right: 5px; /* Espacio entre el ícono y el texto */
   color: var(--accent); /* Color del ícono (puedes ajustarlo) */

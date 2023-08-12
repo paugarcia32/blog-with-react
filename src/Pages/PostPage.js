@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import TableOfContents from "../components/TOC.js";
+import "../styles/PostPage.css";
 
 export default function PostPage() {
   const { id } = useParams();
@@ -58,21 +59,11 @@ export default function PostPage() {
       </div>
       <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
       <div className="author">by {postInfo.author.username}</div>
+      {postContent && <TableOfContents content={postContent} />}
       {userInfo.id === postInfo.author._id && (
-        /*For editing the post*/
         <div className="edit-row">
           <Link className="edit-btn" to={`/edit/${postInfo._id}`}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              {/* SVG paths */}
-            </svg>
-            Edit this post
+            <button className="edit-btn">Edit this post</button>
           </Link>
           <Link className="delete-btn" to={`/index`}>
             <button className="delete-btn" onClick={deletePost}>
@@ -82,7 +73,7 @@ export default function PostPage() {
         </div>
       )}
       <h1>{postInfo.title}</h1>
-      {/* Mostrar los tags asociados al post */}
+
       <div className="tags">
         <strong>Tags: </strong>
         {postInfo.tag.map((associatedTag, index) => (
@@ -97,9 +88,6 @@ export default function PostPage() {
         className="content"
         dangerouslySetInnerHTML={{ __html: postInfo.content }}
       />
-
-      {/* Renderizar la tabla de contenidos solo si el contenido del post es válido */}
-      {postContent && <TableOfContents content={postContent} />}
     </div>
   );
 }

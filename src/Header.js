@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import "./styles/Header.css";
 import { ThemeProvider, useTheme } from "./ThemeProvider";
-import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
@@ -62,22 +61,12 @@ export default function Header() {
 
   return (
     <header>
+      <Link to="/index" className="logo">
+        Admin Dashboard
+      </Link>
       <nav className="nav">
-        <Link to="/index" className="logo">
-          My Blog
-          <img
-            src={
-              theme === "dark"
-                ? "Logo/logo-dark-theme.png"
-                : "Logo/logo-light-theme.png"
-            }
-            alt=""
-            id="logo"
-          />
-        </Link>
         {username && (
           <>
-            <Link to="/create">Create new post</Link>
             <a href onClick={logout}>
               LogOut
             </a>
@@ -89,12 +78,6 @@ export default function Header() {
           id="icon"
           onClick={toggleTheme}
         />
-        {/* {!username && (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-          </>
-        )} */}
       </nav>
     </header>
   );
