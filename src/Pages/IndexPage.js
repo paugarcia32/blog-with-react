@@ -30,6 +30,8 @@ import TagFilter from "../components/TagFilter.js";
 import DisplayPosts from "../components/DisplayPosts.js";
 import TagAdmin from "../components/TagAdmin";
 import PostAdmin from "../components/PostAdmin";
+import MessagesList from "../components/MessageList";
+import CommentList from "../components/CommentList";
 
 export default function IndexPage() {
   const [postsData, setPostsData] = useState([]);
@@ -148,6 +150,8 @@ export default function IndexPage() {
       />
       <TagAdmin />
       <PostAdmin />
+      <MessagesList />
+      <CommentList />
     </div>
   );
 }
