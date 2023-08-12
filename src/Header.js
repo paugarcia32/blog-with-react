@@ -1,10 +1,26 @@
-import { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import "./styles/Header.css";
+import { ThemeProvider, useTheme } from "./ThemeProvider";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
+  const { theme, toggleTheme } = useTheme();
+  const navRef = useRef();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.querySelector("body").setAttribute("data-theme", "dark");
+    } else {
+      document.querySelector("body").setAttribute("data-theme", "light");
+    }
+  }, [theme]);
+
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive_nav");
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -49,6 +65,15 @@ export default function Header() {
       <nav className="nav">
         <Link to="/index" className="logo">
           My Blog
+          <img
+            src={
+              theme === "dark"
+                ? "Logo/logo-dark-theme.png"
+                : "Logo/logo-light-theme.png"
+            }
+            alt=""
+            id="logo"
+          />
         </Link>
         {username && (
           <>
@@ -58,6 +83,12 @@ export default function Header() {
             </a>
           </>
         )}
+        <img
+          src={theme === "dark" ? "sun.png" : "moon.png"}
+          alt=""
+          id="icon"
+          onClick={toggleTheme}
+        />
         {/* {!username && (
           <>
             <Link to="/login">Login</Link>
