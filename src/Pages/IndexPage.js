@@ -29,6 +29,7 @@ import Pagination from "../components/Pagination.js";
 import TagFilter from "../components/TagFilter.js";
 import DisplayPosts from "../components/DisplayPosts.js";
 import TagAdmin from "../components/TagAdmin";
+import PostAdmin from "../components/PostAdmin";
 
 export default function IndexPage() {
   const [postsData, setPostsData] = useState([]);
@@ -146,6 +147,7 @@ export default function IndexPage() {
         handleNextPage={handleNextPage}
       />
       <TagAdmin />
+      <PostAdmin />
     </div>
   );
 }

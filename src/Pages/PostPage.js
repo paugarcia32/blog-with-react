@@ -10,6 +10,24 @@ export default function PostPage() {
   const { userInfo } = useContext(UserContext);
   const [tags, setTags] = useState([]);
   const [postContent, setPostContent] = useState("");
+  const token = localStorage.getItem("token");
+
+  const deletePost = async () => {
+    const response = await fetch(`${process.env.REACT_APP_URL}/post/${id}`, {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      console.log("Post deleted successfully");
+    } else {
+      console.error("Error deleting post:", response.status);
+    }
+  };
 
   useEffect(() => {
     // Obtener los detalles del post y los tags asociados al post
@@ -56,6 +74,11 @@ export default function PostPage() {
             </svg>
             Edit this post
           </Link>
+          <Link className="delete-btn" to={`/index`}>
+            <button className="delete-btn" onClick={deletePost}>
+              Eliminar este post
+            </button>
+          </Link>
         </div>
       )}
       <h1>{postInfo.title}</h1>
@@ -65,7 +88,7 @@ export default function PostPage() {
         {postInfo.tag.map((associatedTag, index) => (
           <span key={associatedTag._id} className="tag">
             {associatedTag.title}
-            {index !== postInfo.tag.length - 1 && ', '}
+            {index !== postInfo.tag.length - 1 && ", "}
           </span>
         ))}
       </div>
@@ -76,12 +99,7 @@ export default function PostPage() {
       />
 
       {/* Renderizar la tabla de contenidos solo si el contenido del post es válido */}
-      {postContent && (
-        <TableOfContents content={postContent} />
-      )}
-
+      {postContent && <TableOfContents content={postContent} />}
     </div>
-
-
   );
 }
