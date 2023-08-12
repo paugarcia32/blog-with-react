@@ -1,26 +1,3 @@
-// import { useEffect, useState } from "react";
-// import Post from "../Post";
-// import FilteredPosts from "../components/FilteredPosts";
-
-// export default function IndexPage() {
-//   const [posts, setPosts] = useState([]);
-
-//   useEffect(() => {
-//     fetch(`${process.env.REACT_APP_URL}/post`).then((response) => {
-//       response.json().then((posts) => {
-//         setPosts(posts);
-//       });
-//     });
-//   }, []);
-//   return (
-//     <>
-//       <div className="layout">
-//         <FilteredPosts />
-//       </div>
-//     </>
-//   );
-// }
-
 import React, { useEffect, useState } from "react";
 import "../styles/PostCard.css";
 import "../styles/IndexPage.css";
@@ -126,6 +103,16 @@ export default function IndexPage() {
 
   return (
     <div className="index-page">
+      <div className="admin-layout">
+        <div className="admin-section">
+          <TagAdmin />
+          <CommentList />
+        </div>
+        <div className="admin-section">
+          <PostAdmin />
+          <MessagesList />
+        </div>
+      </div>
       <div className="layout">
         <div className="sidebar">
           <SearchBar search={search} setSearch={setSearch} />
@@ -148,10 +135,6 @@ export default function IndexPage() {
         handlePrevPage={handlePrevPage}
         handleNextPage={handleNextPage}
       />
-      <TagAdmin />
-      <PostAdmin />
-      <MessagesList />
-      <CommentList />
     </div>
   );
 }

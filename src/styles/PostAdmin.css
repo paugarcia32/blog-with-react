@@ -1,4 +1,4 @@
-.TagAdmin {
+.PostAdmin {
   background-color: var(--secondary);
   border-radius: 10px;
   padding: 20px;
@@ -11,63 +11,45 @@
   margin: 10px;
 }
 
-.TagAdmin:hover {
+.PostAdmin:hover {
   transform: scale(1.05);
 }
 
-.TagAdmin h2 {
-  font-size: 1.2rem;
+.PostAdmin h1 {
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-.TagAdmin ul {
+.PostAdmin p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+.PostAdmin ul {
   list-style: none;
   padding: 0;
 }
 
-.TagAdmin li {
-  cursor: pointer;
-  font-weight: bold;
+.PostAdmin li {
+  font-size: 1rem;
   margin: 5px 0;
   color: var(--text);
 }
 
-.TagAdmin li:hover {
-  color: var(--accent);
-}
-
-.TagAdmin button {
+.PostAdmin a {
+  display: inline-block;
   margin-top: 10px;
   padding: 5px 10px;
   background-color: var(--accent);
   border: none;
   border-radius: 5px;
   color: white;
-  cursor: pointer;
+  text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s ease-in-out;
 }
 
-.TagAdmin button:hover {
+.PostAdmin a:hover {
   background-color: #66cccc;
-}
-
-.TagAdmin input[type="text"] {
-  width: 100%;
-  padding: 5px;
-  margin-top: 5px;
-  border: 1px solid var(--text-dim);
-  border-radius: 5px;
-}
-
-.TagAdmin input[type="text"]:focus {
-  border-color: var(--accent);
-}
-
-.TagAdmin form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
 }

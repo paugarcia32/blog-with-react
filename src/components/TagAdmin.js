@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../UserContext";
+import "../styles/TagAdmin.css";
 
 const Tags = () => {
   const [tagCount, setTagCount] = useState(0);
@@ -103,7 +104,7 @@ const Tags = () => {
   };
 
   return (
-    <div>
+    <div className="TagAdmin">
       <h1>Tags</h1>
       <p>Total tags: {tagCount}</p>
       <ul>

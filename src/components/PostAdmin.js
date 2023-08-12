@@ -1,40 +1,6 @@
-// import { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-
-// const PostAdmin = () => {
-//   const [postCount, setPostCount] = useState(0);
-//   const [postNames, setPostNames] = useState([]);
-
-//   useEffect(() => {
-//     fetch(`${process.env.REACT_APP_URL}/post/count`)
-//       .then((response) => response.json())
-//       .then((data) => setPostCount(data.count))
-//       .catch((error) => console.error("Error fetching post count:", error));
-
-//     fetch(`${process.env.REACT_APP_URL}/post/names`)
-//       .then((response) => response.json())
-//       .then((data) => setPostNames(data))
-//       .catch((error) => console.error("Error fetching post names:", error));
-//   }, []);
-
-//   return (
-//     <div>
-//       <h3>Number of Posts: {postCount}</h3>
-//       <h3>Post Names:</h3>
-//       <ul>
-//         {postNames.map((name, index) => (
-//           <li key={index}>{name}</li>
-//         ))}
-//       </ul>
-//       <Link to="/create">Create new post</Link>
-//     </div>
-//   );
-// };
-
-// export default PostAdmin;
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../styles/PostAdmin.css";
 
 const PostAdmin = () => {
   const [postCount, setPostCount] = useState(0);
@@ -75,9 +41,10 @@ const PostAdmin = () => {
   }
 
   return (
-    <div>
-      <h3>Number of Posts: {postCount}</h3>
-      <h3>Post Names:</h3>
+    <div className="PostAdmin">
+      <h1>Posts</h1>
+      <p>Number of Posts: {postCount}</p>
+      {/* <h3>Post Names:</h3> */}
       <ul>
         {postNames.map((name, index) => (
           <li key={index}>{name}</li>
