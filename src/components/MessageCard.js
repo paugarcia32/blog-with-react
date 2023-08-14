@@ -1,7 +1,11 @@
 import React from "react";
 import "../styles/MessageCard.css";
 
-const MessageCard = ({ message }) => {
+const MessageCard = ({ message, onDelete }) => {
+  const handleDelete = () => {
+    onDelete(message._id);
+  };
+
   return (
     <div className="card">
       <h3>{message.author}</h3>
@@ -17,6 +21,8 @@ const MessageCard = ({ message }) => {
         <br />
         {message.message}
       </p>
+
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };

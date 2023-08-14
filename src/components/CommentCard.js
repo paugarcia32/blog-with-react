@@ -1,7 +1,11 @@
 import React from "react";
 import "../styles/CommentCard.css";
 
-const CommentCard = ({ comment }) => {
+const CommentCard = ({ comment, onDelete }) => {
+  const handleDelete = () => {
+    onDelete(comment._id);
+  };
+
   return (
     <div className="card">
       <div className="card-content">
@@ -13,6 +17,7 @@ const CommentCard = ({ comment }) => {
         Content: <br />
         {comment.contenido}
       </div>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };
