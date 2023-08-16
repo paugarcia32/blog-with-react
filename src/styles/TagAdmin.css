@@ -58,6 +58,8 @@
   margin-top: 5px;
   border: 1px solid var(--text-dim);
   border-radius: 5px;
+  background-color: var(--secondary);
+  color: var(--text);
 }
 
 .TagAdmin input[type="text"]:focus {
@@ -71,3 +73,5 @@
   width: 100%;
   margin-top: 10px;
 }
+
+

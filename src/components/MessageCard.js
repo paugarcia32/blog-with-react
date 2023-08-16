@@ -22,7 +22,7 @@ const MessageCard = ({ message, onDelete }) => {
         {message.message}
       </p>
 
-      <button onClick={handleDelete}>Delete</button>
+      <button className="delete-button" onClick={handleDelete}>Delete</button>
     </div>
   );
 };

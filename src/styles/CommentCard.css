@@ -34,3 +34,26 @@
   font-size: 0.9rem;
   color: var(--text-dim);
 }
+
+
+.delete-button {
+  background-color: #f44336;
+  /* Color de fondo del botón */
+  color: white;
+  /* Color del texto del botón */
+  border: none;
+  /* Quita el borde */
+  padding: 10px 20px;
+  /* Espaciado interno */
+  cursor: pointer;
+  /* Cambia el cursor al pasar por encima */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  transition: background-color 0.3s, color 0.3s;
+  /* Transición suave en hover */
+
+  /* Estilo al pasar el mouse por encima */
+  &:hover {
+    background-color: #d32f2f;
+  }
+}

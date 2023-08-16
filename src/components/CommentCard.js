@@ -17,7 +17,7 @@ const CommentCard = ({ comment, onDelete }) => {
         Content: <br />
         {comment.contenido}
       </div>
-      <button onClick={handleDelete}>Delete</button>
+      <button className="delete-button" onClick={handleDelete}>Delete</button>
     </div>
   );
 };
