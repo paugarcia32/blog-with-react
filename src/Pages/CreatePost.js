@@ -93,7 +93,6 @@ export default function CreatePost(){
     data.set('summary', summary);
     data.set('content', content);
 
-    // Solo envía los IDs de los tags seleccionados, si hay alguno seleccionado
     if (selectedTags.length > 0) {
       selectedTags.forEach((tagId) => data.append('tag', tagId));
     }
@@ -111,6 +110,35 @@ export default function CreatePost(){
       setRedirect(true);
     }
   }
+
+
+
+
+  // async function createNewPost(ev) {
+  //   console.log("Selected Tags IDs:", selectedTags);
+
+  //   const postData = {
+  //     title,
+  //     summary,
+  //     content,
+  //     tag: selectedTags,
+  //   };
+
+  //   ev.preventDefault();
+  //   const response = await fetch(`${process.env.REACT_APP_URL}/post`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(postData),
+  //     credentials: "include",
+  //   });
+
+  //   if (response.ok) {
+  //     setRedirect(true);
+  //   }
+  // }
+
 
   if (redirect) {
     return <Navigate to={'/'} />
