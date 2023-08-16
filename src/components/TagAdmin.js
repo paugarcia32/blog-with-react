@@ -11,7 +11,6 @@ const Tags = () => {
 
   const token = localStorage.getItem("token");
   useEffect(() => {
-    // Fetch tag count and list of tags from the server
     fetchTagCount();
     fetchTags();
   }, []);

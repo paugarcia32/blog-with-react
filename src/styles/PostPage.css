@@ -1,28 +1,3 @@
-/* Estilos para la imagen del post */
-.image {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos para la información del post */
-.time {
-  color: var(--text-dim);
-  font-size: 0.8rem;
-}
-
-.author {
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-/* Estilos para la sección de edición y eliminación */
 .edit-row {
   display: flex;
   justify-content: center;
@@ -65,36 +40,190 @@
   background-color: #ff4f4f;
 }
 
-/* Estilos para el título del post */
-h1 {
-  font-size: 2rem;
-  margin: 20px 0;
+div.post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  font-family: "OpenSans", sans-serif;
+  padding: 20px;
+  min-width: 960px;
 }
 
-/* Estilos para los tags asociados al post */
-.tags {
-  margin-bottom: 15px;
-}
-
-.tag {
-  color: var(--accent);
-  font-weight: bold;
-}
-
-/* Estilos para el contenido del post */
-.content {
-  line-height: 1.6;
-}
-
-/* Estilos para la tabla de contenidos */
-.toc-content {
+div.toc-content {
   display: flex;
   gap: 20px;
   margin-top: 40px;
 }
 
-/* Estilos para los enlaces de la tabla de contenidos */
-.toc-item {
+.toc-tags {
+  width: 150px;
+  margin-top: 30px;
+  position: sticky;
+  top: 100px;
+}
+
+.scrollable-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tags-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  color: var(--accent);
+}
+
+.tags {
+  margin-bottom: 15px;
+}
+
+.tags .tag {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+div.content {
+  flex: 1;
+  line-height: 1.6;
+}
+
+.content pre {
+  background-color: var(--secondary);
+  padding: 10px;
+  overflow: auto;
+  border-radius: 4px;
+  font-family: "RobotoMono";
+}
+
+/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+
+/* Estilos exclusivos para el contenido dentro de .content */
+.content blockquote {
+  background-color: var(--secondary);
+  border-left: 4px solid var(--accent);
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.content ol {
+  list-style-type: decimal;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.content .ql-formula {
+  font-family: "RobotoMono", monospace;
+  background-color: var(--secondary);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.content a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.content a:hover {
+  text-decoration: underline;
+}
+
+/* aaaaaaaaaaaaaaaaaaaa */
+
+a.linkedTags {
+  color: var(--accent);
+}
+
+div.post-page a.linkedTags {
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+div.headers {
+  text-align: center;
+  margin-top: 20px;
+}
+
+div.h-text {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+div.toc-tags {
+  width: 150px;
+  margin-top: 30px;
+}
+
+div.tags {
+  margin-bottom: 15px;
+}
+
+div.post-page a.author {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+div.post-page a {
+  text-decoration: none;
+}
+
+div.post-page p {
+  color: var(--text);
+  font-family: OpenSans;
+}
+
+.related-posts-section {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 100px;
+}
+
+h2.RpostTitle {
+  text-align: center;
+  font-family: "Merriweather", serif;
+}
+
+h2.CommentTitle {
+  font-family: "Merriweather", serif;
+  text-align: center;
+}
+
+.image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  line-height: 1.6;
+}
+
+.related-tags {
+  color: var(--text);
+}
+
+.tags .tag {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.toc-tags .toc-item {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -104,9 +233,70 @@ h1 {
   color: var(--text-dim);
   display: block;
   padding: 2px 0;
-  text-decoration: none;
 }
 
 .toc-item a:hover {
   color: var(--accent);
+}
+
+@media only screen and (max-width: 960px) {
+  div.post-page {
+    flex-direction: column;
+    align-items: center;
+    max-width: 750px;
+    min-width: 600px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .image img {
+    max-width: 700px;
+    min-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    height: auto;
+    max-height: calc(100vh - 100px);
+    align-items: center;
+  }
+
+  div.toc-content {
+    flex-direction: column;
+  }
+
+  div.toc-tags {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  div.content {
+    line-height: 1.6;
+    max-width: 800px;
+    min-width: 300px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  div.post-page {
+    max-width: 700px;
+    min-width: 550px;
+  }
+
+  .image img {
+    max-width: 500px;
+    min-width: 300px;
+  }
+
+  div.content {
+    max-width: 700px;
+    min-width: 300px;
+  }
+
+  .related-posts-section {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    margin-bottom: 100px;
+  }
 }
