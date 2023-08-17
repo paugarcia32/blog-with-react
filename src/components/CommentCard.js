@@ -13,11 +13,10 @@ const CommentCard = ({ comment, onDelete }) => {
         <h3>{comment.postId.title}</h3>
       </div>
       <div className="comment-likes">Likes: {comment.likes}</div>
-      <div className="comment-content">
-        Content: <br />
-        {comment.contenido}
-      </div>
-      <button className="delete-button" onClick={handleDelete}>Delete</button>
+      <div className="comment-content">{comment.contenido}</div>
+      <button className="delete-button" onClick={handleDelete}>
+        Delete
+      </button>
     </div>
   );
 };

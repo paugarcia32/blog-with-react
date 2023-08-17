@@ -21,7 +21,6 @@ const MessagesList = () => {
       );
 
       if (response.ok) {
-        // Eliminación exitosa, actualiza la lista de mensajes
         const updatedMessages = messages.filter(
           (message) => message._id !== messageId
         );

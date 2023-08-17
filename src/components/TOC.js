@@ -1,4 +1,4 @@
-import '../styles/TOC.css'
+import "../styles/TOC.css";
 
 import { useEffect, useState } from "react";
 
@@ -22,21 +22,21 @@ function TableOfContents({ content }) {
   }, [content]);
 
   const getIndentation = (level) => {
-    const baseIndentation = 20; // Píxeles para el nivel h1
-    const indentationIncrement = 15; // Píxeles para cada nivel adicional
+    const baseIndentation = 20;
+    const indentationIncrement = 15;
     return `${baseIndentation + indentationIncrement * (level - 1)}px`;
   };
 
   const handleHeadingClick = (index) => {
     setActiveHeadingIndex(index);
 
-    // Buscar el texto del encabezado en el contenido
     const headingText = headings[index].text;
     const contentDiv = document.querySelector(".content");
 
-    // Buscar el párrafo que contiene el texto del encabezado y realizar el desplazamiento suave
     if (contentDiv) {
-      const paragraphsWithHeading = contentDiv.querySelectorAll("p, h1, h2, h3, h4, h5, h6");
+      const paragraphsWithHeading = contentDiv.querySelectorAll(
+        "p, h1, h2, h3, h4, h5, h6"
+      );
       for (let i = 0; i < paragraphsWithHeading.length; i++) {
         if (paragraphsWithHeading[i].textContent === headingText) {
           paragraphsWithHeading[i].scrollIntoView({ behavior: "smooth" });

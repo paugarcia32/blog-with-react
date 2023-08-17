@@ -1,39 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { UserContext } from "../UserContext";
 import "../styles/TagAdmin.css";
+import useFetchTagCount from "../hooks/useTagCount";
+import useFetchTags from "../hooks/useFetchTags";
 
 const Tags = () => {
-  const [tagCount, setTagCount] = useState(0);
-  const [tags, setTags] = useState([]);
   const [selectedTag, setSelectedTag] = useState(null);
   const [newTagTitle, setNewTagTitle] = useState("");
   const { setUserInfo, userInfo } = useContext(UserContext);
-
   const token = localStorage.getItem("token");
-  useEffect(() => {
-    fetchTagCount();
-    fetchTags();
-  }, []);
-
-  const fetchTagCount = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_URL}/tags/count`);
-      const data = await response.json();
-      setTagCount(data.tagCount);
-    } catch (error) {
-      console.error("Error fetching tag count:", error);
-    }
-  };
-
-  const fetchTags = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_URL}/tags`);
-      const data = await response.json();
-      setTags(data);
-    } catch (error) {
-      console.error("Error fetching tags:", error);
-    }
-  };
+  const tagCount = useFetchTagCount();
+  const tags = useFetchTags();
+  const fetchTags = useFetchTags();
+  const fetchTagCount = useFetchTagCount();
 
   const handleTagSelect = (tag) => {
     setSelectedTag(tag);
@@ -94,8 +73,8 @@ const Tags = () => {
 
       if (response.ok) {
         setNewTagTitle("");
-        fetchTags();
         fetchTagCount();
+        fetchTags();
       }
     } catch (error) {
       console.error("Error creating tag:", error);

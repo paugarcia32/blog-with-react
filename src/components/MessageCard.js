@@ -16,13 +16,11 @@ const MessageCard = ({ message, onDelete }) => {
         </p>
       </div>
 
-      <p>
-        Message:
-        <br />
-        {message.message}
-      </p>
+      <p>{message.message}</p>
 
-      <button className="delete-button" onClick={handleDelete}>Delete</button>
+      <button className="delete-button" onClick={handleDelete}>
+        Delete
+      </button>
     </div>
   );
 };

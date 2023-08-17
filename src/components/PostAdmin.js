@@ -1,50 +1,33 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/PostAdmin.css";
+import useFetchPostCount from "../hooks/useFetchPostCount";
+import useFetchPostNames from "../hooks/useFetchPostNames";
 
 const PostAdmin = () => {
-  const [postCount, setPostCount] = useState(0);
-  const [postNames, setPostNames] = useState([]);
-  const [loading, setLoading] = useState(true); // Agregamos un estado de carga
-  const [error, setError] = useState(null); // Agregamos un estado de error
+  const {
+    postCount,
+    loading: loadingCount,
+    error: errorCount,
+  } = useFetchPostCount();
+  const { postNames, error: errorNames } = useFetchPostNames();
 
-  useEffect(() => {
-    setLoading(true); // Iniciamos el estado de carga
-
-    fetch(`${process.env.REACT_APP_URL}/post/count`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPostCount(data.totalPosts);
-        setLoading(false); // Cambiamos el estado de carga a falso cuando se obtienen los datos
-      })
-      .catch((error) => {
-        setError(error); // Manejamos el error estableciendo el estado de error
-        setLoading(false); // Cambiamos el estado de carga a falso en caso de error
-      });
-
-    fetch(`${process.env.REACT_APP_URL}/post/names`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPostNames(data);
-      })
-      .catch((error) => {
-        setError(error); // Manejamos el error estableciendo el estado de error
-      });
-  }, []);
-
-  if (loading) {
+  if (loadingCount) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
+  if (errorCount) {
+    return <div>Error: {errorCount.message}</div>;
+  }
+
+  if (errorNames) {
+    return <div>Error: Unable to fetch post names</div>;
   }
 
   return (
     <div className="PostAdmin">
       <h1>Posts</h1>
       <p>Number of Posts: {postCount}</p>
-      {/* <h3>Post Names:</h3> */}
       <ul>
         {postNames.map((name, index) => (
           <li key={index}>{name}</li>
