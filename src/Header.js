@@ -27,18 +27,16 @@ export default function Header() {
     fetch(`${process.env.REACT_APP_URL}/profile`, {
       credentials: "include",
       headers: {
-        Authorization: `Bearer ${token}`, // Agrega el token en el encabezado
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((response) => {
-        // Verificar si la respuesta no es un JSON válido
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
       .then((userInfo) => {
-        // Verificar si el campo 'username' está presente en la respuesta
         if (userInfo && userInfo.username) {
           setUserInfo(userInfo);
         }

@@ -9,6 +9,7 @@ import CreatePost from "./Pages/CreatePost";
 import PostPage from "./Pages/PostPage";
 import EditPost from "./Pages/EditPost";
 import ProtectedRoute from "./ProtectedRoute";
+import React from 'react'
 
 function App() {
   return (

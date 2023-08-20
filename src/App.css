@@ -24,50 +24,51 @@ main {
 
 @font-face {
   font-family: OpenSansBold;
-  src: url(../public/fonts/Open_Sans/static/OpenSans-Bold.ttf);
+  /* src: url(../public/fonts/Open_Sans/static/OpenSans-Bold.ttf); */
+    src: url(../src/Assets/fonts/Open_Sans/static/OpenSans-Bold.ttf);
 }
 
 @font-face {
   font-family: OpenSans;
-  src: url(../public/fonts/Open_Sans/static/OpenSans-Regular.ttf);
+  src: url(../src/Assets/fonts/Open_Sans/static/OpenSans-Regular.ttf);
 }
 
 @font-face {
   font-family: OpenSansItalic;
-  src: url(../public/fonts/Open_Sans/static/OpenSans-Italic.ttf);
+  src: url(../src/Assets/fonts/Open_Sans/static/OpenSans-Italic.ttf);
 }
 
 @font-face {
   font-family: Merriweather;
-  src: url(../public/fonts/Merriweather/Merriweather-Regular.ttf);
+  src: url(../src/Assets/fonts/Merriweather/Merriweather-Regular.ttf);
 }
 
 @font-face {
   font-family: MerriweatherBold;
-  src: url(../public/fonts/Merriweather/Merriweather-Bold.ttf);
+  src: url(../src/Assets/fonts/Merriweather/Merriweather-Bold.ttf);
 }
 
 @font-face {
   font-family: MerriweatherItalic;
-  src: url(../public/fonts/Merriweather/Merriweather-Italic.ttf);
+  src: url(../src/Assets/fonts/Merriweather/Merriweather-Italic.ttf);
 }
 
 @font-face {
   font-family: Montserrat;
-  src: url(../public/fonts/Montserrat/static/Montserrat-Medium.ttf);
+  src: url(../src/Assets/fonts/Montserrat/static/Montserrat-Medium.ttf);
 }
 
 @font-face {
   font-family: MontserratBold;
-  src: url(../public/fonts/Montserrat/static/Montserrat-Bold.ttf);
+  src: url(../src/Assets/fonts/Montserrat/static/Montserrat-Bold.ttf);
 }
 
 @font-face {
   font-family: MontserratItalic;
-  src: url(../public/fonts/Montserrat/static/Montserrat-Italic.ttf);
+  src: url(../src/Assets/fonts/Montserrat/static/Montserrat-Italic.ttf);
 }
 
 @font-face {
   font-family: RobotoMono;
-  src: url(../public/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf);
+  src: url(../src/Assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf);
 }

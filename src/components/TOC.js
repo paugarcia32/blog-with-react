@@ -1,6 +1,6 @@
 import "../styles/TOC.css";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function TableOfContents({ content }) {
   const [headings, setHeadings] = useState([]);

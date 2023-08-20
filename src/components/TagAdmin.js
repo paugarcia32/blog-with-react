@@ -85,20 +85,20 @@ const Tags = () => {
     <div className="TagAdmin">
       <h1>Tags</h1>
       <p>Total tags: {tagCount}</p>
-      <ul>
-        {tags.map((tag) => (
-          <li
-            key={tag._id}
-            onClick={() => handleTagSelect(tag)}
-            style={{
-              cursor: "pointer",
-              fontWeight: selectedTag?._id === tag._id ? "bold" : "normal",
-            }}
-          >
-            {tag.title}
-          </li>
-        ))}
-      </ul>
+<ul>
+  {tags.map((tag) => (
+    <li
+      key={tag._id}
+      onClick={() => handleTagSelect(tag)}
+      style={{
+        cursor: "pointer",
+        fontWeight: selectedTag && selectedTag._id === tag._id ? "bold" : "normal",
+      }}
+    >
+      {tag.title}
+    </li>
+  ))}
+</ul>
       {selectedTag && (
         <div>
           <h2>Edit Tag</h2>
